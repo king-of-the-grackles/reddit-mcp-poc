@@ -1,3 +1,5 @@
+[![MSeeP.ai Security Assessment Badge](https://mseep.net/pr/king-of-the-grackles-reddit-mcp-poc-badge.png)](https://mseep.ai/app/king-of-the-grackles-reddit-mcp-poc)
+
 # Reddit MCP Server
 
 A Model Context Protocol (MCP) server that provides LLMs with comprehensive access to Reddit content through a **three-layer architecture** designed for thorough research and analysis. Built with FastMCP and PRAW for efficient deployment.
