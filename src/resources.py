@@ -215,8 +215,52 @@ def register_resources(mcp, reddit: praw.Reddit) -> None:
                         "always_current": True
                     }
                 ],
+                "prompts": [
+                    {
+                        "name": "get_started",
+                        "description": "Comprehensive guide for using Reddit MCP effectively",
+                        "tags": ["getting-started", "tutorial", "guide"]
+                    },
+                    {
+                        "name": "research_topic",
+                        "description": "Generate a structured research plan for any topic on Reddit",
+                        "parameters": ["topic", "depth", "time_range", "include_nsfw"],
+                        "tags": ["research", "planning", "analysis"]
+                    },
+                    {
+                        "name": "analyze_sentiment",
+                        "description": "Create sentiment analysis request for Reddit discussions",
+                        "parameters": ["subreddit_or_topic", "is_subreddit", "aspects"],
+                        "tags": ["sentiment", "analysis", "emotions"]
+                    },
+                    {
+                        "name": "compare_communities",
+                        "description": "Generate comparison analysis between multiple Reddit communities",
+                        "parameters": ["subreddits", "comparison_aspects"],
+                        "tags": ["comparison", "communities", "analysis"]
+                    },
+                    {
+                        "name": "trending_analysis", 
+                        "description": "Find and analyze trending topics across Reddit",
+                        "parameters": ["category", "time_window", "min_engagement"],
+                        "tags": ["trending", "discovery", "current-events"]
+                    },
+                    {
+                        "name": "deep_dive",
+                        "description": "Create deep dive research plan for exhaustive single-topic analysis",
+                        "parameters": ["topic", "historical_range", "min_posts_to_analyze", "min_comments_to_analyze"],
+                        "tags": ["deep-dive", "research", "comprehensive"]
+                    },
+                    {
+                        "name": "citation_guide",
+                        "description": "Generate proper citation format for Reddit content",
+                        "parameters": ["include_examples", "citation_style"],
+                        "tags": ["citation", "reference", "documentation"]
+                    }
+                ],
                 "total_tools": 6,
-                "total_resources": 3
+                "total_resources": 3,
+                "total_prompts": 7
             },
             "usage_examples": {
                 "discover_subreddits": {
@@ -236,6 +280,15 @@ def register_resources(mcp, reddit: praw.Reddit) -> None:
                 "resources": {
                     "popular": "Access resource: reddit://popular-subreddits",
                     "about": "Access resource: reddit://subreddit/python/about"
+                },
+                "prompts": {
+                    "getting_started": "Use 'get_started' prompt for comprehensive guide",
+                    "research_planning": "research_topic(topic='machine learning', depth='comprehensive')",
+                    "sentiment": "analyze_sentiment(subreddit_or_topic='technology', is_subreddit=True)",
+                    "comparison": "compare_communities(subreddits=['python', 'golang', 'rust'])",
+                    "trending": "trending_analysis(category='technology', time_window='day')",
+                    "deep_research": "deep_dive(topic='AI ethics', min_posts_to_analyze=100)",
+                    "citations": "citation_guide(include_examples=True)"
                 }
             },
             "performance_tips": [

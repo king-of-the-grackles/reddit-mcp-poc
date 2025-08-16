@@ -13,6 +13,7 @@ from src.tools.posts import fetch_subreddit_posts, fetch_multiple_subreddits
 from src.tools.comments import fetch_submission_with_comments
 from src.tools.discover import discover_subreddits
 from src.resources import register_resources
+from src.prompts import register_prompts
 
 # Initialize MCP server
 mcp = FastMCP("Reddit MCP", instructions="""
@@ -36,14 +37,27 @@ RECOMMENDED WORKFLOW FOR COMPREHENSIVE COVERAGE:
 
 🎯 This approach ensures perspectives from diverse Reddit communities with proper citations!
 
+📚 AVAILABLE PROMPTS (use these for structured research):
+• get_started - Comprehensive guide for using Reddit MCP effectively
+• research_topic - Generate a structured research plan for any topic
+• analyze_sentiment - Create sentiment analysis request for Reddit discussions
+• compare_communities - Compare multiple Reddit communities systematically
+• trending_analysis - Find and analyze trending topics across Reddit
+• deep_dive - Exhaustive single-topic analysis (100+ posts, 1000+ comments)
+• citation_guide - Proper citation format for Reddit content
+
+To use prompts: Query for available prompts via MCP prompts/list, then use them for structured research workflows.
+Example: Use 'research_topic' prompt with parameters like topic="machine learning", depth="comprehensive"
+
 Quick Start: Try the 'get_started' prompt or read reddit://server-info for complete docs.
 """)
 
 # Initialize Reddit client
 reddit = get_reddit_client()
 
-# Register resources
+# Register resources and prompts
 register_resources(mcp, reddit)
+register_prompts(mcp)
 
 
 # Supporting utility functions for layered architecture
